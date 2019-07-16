@@ -1,8 +1,11 @@
-﻿-- DATA ENGINEERING
--- Create database 
-CREATE DATABASE employeedb
+﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- Link to schema: https://app.quickdatabasediagrams.com/#/d/GoTqrT
+-- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
--- Create tables
+-- Modify this code to update the DB schema diagram.
+-- To reset the sample schema, replace everything with
+-- two dots ('..' - without quotes).
+
 CREATE TABLE "departments" (
     "dept_no" VARCHAR(4)   NOT NULL,
     "dept_name" VARCHAR(32)   NOT NULL,
@@ -51,8 +54,6 @@ CREATE TABLE "titles" (
     "to_date" DATE   NOT NULL
 );
 
--- Create foreign keys
-
 ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_emp_no" FOREIGN KEY("emp_no")
 REFERENCES "employees" ("emp_no");
 
@@ -71,10 +72,3 @@ REFERENCES "employees" ("emp_no");
 ALTER TABLE "titles" ADD CONSTRAINT "fk_titles_emp_no" FOREIGN KEY("emp_no")
 REFERENCES "employees" ("emp_no");
 
--- Confirm tables have correct data after manual imports
-SELECT * FROM departments
-SELECT * FROM employees
-SELECT * FROM dept_emp
-SELECT * FROM dept_manager
-SELECT * FROM salaries
-SELECT * FROM titles
